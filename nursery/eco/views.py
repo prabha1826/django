@@ -11,4 +11,12 @@ def home(request):
     #<img src="" alt="image">
     #"""
     #)
-    return render(request, "home.html")
+    plants=[
+        {'name':'Rose','Price':100},
+        {'name':'Lilly','Price':100},
+        {'name':'Crysanthemum','Price':100},
+        {'name':'Tulip','Price':100},
+    ]
+    message="Wonder world of Green"
+    #return render(request, "home.html",context={"plants":plants,"msg":message})
+    return render(request,"nursery.html")
