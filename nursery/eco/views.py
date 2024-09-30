@@ -24,12 +24,11 @@ def home(request):
 def nursery(request):
     plants=[
         {'name':'Rose','Price':100},
-        {'name':'Lilly','Price':100},
-        {'name':'Crysanthemum','Price':100},
-        {'name':'Tulip','Price':100},
+        {'name':'Lilly','Price':99},
+        {'name':'Crysanthemum','Price':70},
+        {'name':'Tulip','Price':40},
     ]
     return render(request,"nursery.html",context={"plants":plants})
 
 def contacts(request):
     return render(request,"contacts.html")
-

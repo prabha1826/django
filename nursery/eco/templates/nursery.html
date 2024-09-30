@@ -1,4 +1,3 @@
-
 {% extends "base.html"%}
 {%block start%}
 {{plants}}
@@ -12,11 +11,13 @@
     </thead>
     <tbody>
         {% for plant in plants%}
+        {% if plant.Price < 100%}
         <tr>
             <td>{{forloop.counter}}</td>
             <td>{{plant.name}}</td>
             <td>{{plant.Price}}</td>
         </tr>
+        {%endif%}
         {% endfor %}
     </tbody>
   </table>
