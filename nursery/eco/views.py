@@ -18,5 +18,18 @@ def home(request):
         {'name':'Tulip','Price':100},
     ]
     message="Wonder world of Green"
-    #return render(request, "home.html",context={"plants":plants,"msg":message})
-    return render(request,"nursery.html")
+    return render(request, "home.html",context={"plants":plants,"msg":message})
+    #return render(request,"nursery.html")
+
+def nursery(request):
+    plants=[
+        {'name':'Rose','Price':100},
+        {'name':'Lilly','Price':100},
+        {'name':'Crysanthemum','Price':100},
+        {'name':'Tulip','Price':100},
+    ]
+    return render(request,"nursery.html",context={"plants":plants})
+
+def contacts(request):
+    return render(request,"contacts.html")
+

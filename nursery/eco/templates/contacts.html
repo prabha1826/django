@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block start %}
+        <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            <div id="form-message"></div>
+        </div>
+    </section>
+{%endblock%}
