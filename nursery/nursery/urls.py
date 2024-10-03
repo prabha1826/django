@@ -17,10 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from eco.views import *
+from eco import views
 urlpatterns = [
     path('',home,name="home"),
     path('contacts/',contacts, name="contacts"),
     path('nursery/',nursery,name="nursery"),
     path('home/',home,name="home"),
     path('admin/', admin.site.urls),
+    path('plants/add/',add_plant,name="add_plant"),
+    path('all/plants/',all_plants, name="all_plants"),
+    path('delete/<int:plant_id>/', views.delete_plant, name='delete_plant'),
+     path('update/<int:plant_id>/', views.update_plant, name='update_plant'),
 ]

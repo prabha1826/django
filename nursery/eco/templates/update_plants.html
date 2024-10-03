@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Update Plant</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Update Plant Information</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="plant_name">Plant Name:</label>
+            <input type="text" name="plant_name" class="form-control" value="{{ plant.plant_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="scientific_name">Scientific Name:</label>
+            <input type="text" name="scientific_name" class="form-control" value="{{ plant.scientific_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" name="price" class="form-control" value="{{ plant.price }}" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" name="age" class="form-control" value="{{ plant.age }}" required>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" name="imported" class="form-check-input" id="imported" {% if plant.imported %}checked{% endif %}>
+            <label class="form-check-label" for="imported">Imported</label>
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Update Plant</button>
+    </form>
+</div>
+
+</body>
+</html>

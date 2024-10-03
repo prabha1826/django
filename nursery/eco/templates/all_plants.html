@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Plants</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">All Plants</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Plant Name</th>
+                <th>Scientific Name</th>
+                <th>Price</th>
+                <th>Age</th>
+                <th>Imported</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plant in plants %}
+            <tr>
+                <td>{{ plant.id }}</td>
+                <td>{{ plant.plant_name }}</td>
+                <td>{{ plant.scientific_name }}</td>
+                <td>{{ plant.price }}</td>
+                <td>{{ plant.age }}</td>
+                <td>{{ plant.imported|yesno:"Yes,No" }}</td>
+                <td>
+                    <a href="{% url 'update_plant' plant.id %}" class="btn btn-warning">Update</a>
+                    <a href="{% url 'delete_plant' plant.id %}" class="btn btn-danger" 
+                       onclick="return confirm('Are you sure you want to delete this plant?');">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
