@@ -11,3 +11,7 @@ class Plant(models.Model):
     age=models.IntegerField()
     pic=models.ImageField(null=True)
     imported=models.BooleanField(default=False)
+    
+    def __str__(self) -> str:
+        return self.plant_name
+   
