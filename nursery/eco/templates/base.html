@@ -281,6 +281,20 @@
                 }
             }
 
+            button {
+                padding: 10px 20px;
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+
         </style>
     </head>
     <body>
@@ -294,6 +308,14 @@
                         <li><a href="\nursery">Plants</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="\contacts">Contact</a></li>
+                        <li><a href="\login"><button type="submit" class="btn btn-primary">Login</button></a></li>
+                        <div class="float-end">
+                            {%if request.user.is_authenticated%}
+                            <a href="/logout/" class="btn btn-danger" type="submit">Logout</a>
+                            {%else%}
+                            <a href="/login/" class="btn btn-primary" type="submit">Login</a>
+                            {%endif%}
+                        </div>
                     </ul>
                 </nav>
                 <div class="hamburger">
@@ -302,7 +324,6 @@
                     <span></span>
                 </div>
             </div>
-
         </header>
 
         {% block start %}

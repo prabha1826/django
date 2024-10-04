@@ -40,7 +40,6 @@ def contacts(request):
     return render(request,"contacts.html")
 
 @login_required(login_url="/login/")
-
 def add_plant(request):
     if  request.method == "POST":
         data = request.POST
@@ -68,11 +67,13 @@ def add_plant(request):
 
 
 # 2. Get all plants
+@login_required(login_url="/login/")
 def all_plants(request):
     plants = Plant.objects.all()
     return render(request, 'all_plants.html', {'plants': plants})
 
 # 3. Delete a particular plant
+@login_required(login_url="/login/")
 def delete_plant(request, plant_id):
     plant = get_object_or_404(Plant, id=plant_id)
     plant.delete()
@@ -80,6 +81,7 @@ def delete_plant(request, plant_id):
     return redirect('plant_list')
 
 # 4. Update a particular plant
+@login_required(login_url="/login/")
 def update_plant(request, plant_id):
     plant = get_object_or_404(Plant, id=plant_id)
     

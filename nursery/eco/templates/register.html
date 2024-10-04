@@ -4,29 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .card-body {
+            padding: 30px;
+        }
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+        }
+        label {
+            font-weight: 600;
+            color: #555;
+        }
+        input.form-control {
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            transition: border-color 0.3s ease;
+        }
+        input.form-control:focus {
+            border-color: #6a11cb;
+            box-shadow: none;
+        }
+        button.btn-primary {
+            padding: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #6a11cb;
+            border-radius: 8px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        button.btn-primary:hover {
+            background-color: #2575fc;
+        }
+        p.text-center a {
+            color: #6a11cb;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        p.text-center a:hover {
+            color: #2575fc;
+        }
+    </style>
 </head>
 <body>
-    <h2>Register</h2>
-    <form method="POST">
-        {% csrf_token %}
-        <div>
-            <label for="first_name">First Name:</label>
-            <input type="text" name="first_name" required>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="card shadow-sm" style="width: 400px;">
+            <div class="card-body p-4">
+                <h3 class="card-title text-center mb-4">Register</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" name="first_name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" name="last_name" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+                <p class="text-center mt-3">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+            </div>
         </div>
-        <div>
-            <label for="last_name">Last Name:</label>
-            <input type="text" name="last_name" required>
-        </div>
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" name="username" required>
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" name="password" required>
-        </div>
-        <button type="submit">Register</button>
-    </form>
-    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    </div>
 </body>
 </html>
+
