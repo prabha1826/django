@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from eco.views import *
-from eco import views
+from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('',home,name="home"),
     path('contacts/',contacts, name="contacts"),
@@ -26,6 +26,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('plants/add/',add_plant,name="add_plant"),
     path('all/plants/',all_plants, name="all_plants"),
-    path('delete/<int:plant_id>/', views.delete_plant, name='delete_plant'),
-     path('update/<int:plant_id>/', views.update_plant, name='update_plant'),
+    path('delete/<int:plant_id>/', delete_plant, name='delete_plant'),
+     path('update/<int:plant_id>/', update_plant, name='update_plant'),
+     path('login/',login_page,name="login"),
+     path('logout/',home,name="home"),
+     path('register/',register_page,name='register'),
 ]
